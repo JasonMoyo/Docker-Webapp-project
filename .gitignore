@@ -1,0 +1,43 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# PHP dependencies
+/vendor/
+.env
+composer.lock
+
+# Ignore sensitive files
+.env
+*.zip
+*.log
+*.sql
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Database backups
+*.sql
+*.sql.gz
+*.sql.zip
+!init.sql
+
+# Uploads
+/uploads/*
+!/uploads/.gitkeep
+
+# Docker
+.dockerignore
+docker-compose.override.yml

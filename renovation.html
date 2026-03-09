@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Renovation - NqobileQ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .service-detail {
+            padding: 12rem 8% 5rem;
+        }
+        .service-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .service-header h1 {
+            font-size: 5rem;
+        }
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 5rem 0;
+        }
+        .feature-card {
+            background: var(--snd-bg-color);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 1px solid var(--main-color);
+            text-align: center;
+        }
+        .feature-card i {
+            font-size: 4rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+        .contact-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.php" class="logo">NQOBILE<span>Q</span></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="index.php#home">Home</a></li>
+            <li><a href="index.php#services">Services</a></li>
+            <li><a href="index.php#about">About</a></li>
+            <li><a href="index.php#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="service-detail">
+        <div class="service-header">
+            <h1>Home <span>Renovation</span></h1>
+            <p style="font-size: 2rem; max-width: 800px; margin: 2rem auto;">Expert kitchen remodeling, bathroom renovations, and complete home makeovers</p>
+        </div>
+
+        <div class="service-features">
+            <div class="feature-card">
+                <i class='bx bxs-kitchen'></i>
+                <h3>Kitchen Remodeling</h3>
+                <p>Custom kitchen designs with modern fixtures and quality craftsmanship</p>
+            </div>
+            <div class="feature-card">
+                <i class='bx bxs-bath'></i>
+                <h3>Bathroom Renovation</h3>
+                <p>Luxurious bathroom upgrades with premium materials and expert installation</p>
+            </div>
+            <div class="feature-card">
+                <i class='bx bxs-home'></i>
+                <h3>Full Home Makeover</h3>
+                <p>Complete home transformation from floor to ceiling</p>
+            </div>
+        </div>
+
+        <div class="contact-buttons">
+            <a href="https://wa.me/+27782280408" target="_blank" class="btn" style="background: #25D366;">
+                <i class='bx bxl-whatsapp'></i> Inquire via WhatsApp
+            </a>
+            <a href="tel:+27782280408" class="btn">
+                <i class='bx bxs-phone-call'></i> Call for Quote
+            </a>
+            <a href="#" class="btn" onclick="document.getElementById('joinUsModal').style.display='block'">
+                <i class='bx bxs-calendar'></i> Book Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- Include the same modal from index.html -->
+    <div id="joinUsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book a Consultation</h2>
+            <form action="submit_booking.php" method="POST">
+                <input type="hidden" name="service_type" value="renovation">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="message">Project Details:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us about your renovation project..."></textarea>
+
+                <button type="submit" class="submit-btn">Submit Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="https://www.facebook.com/profile.php?id=61588428180925" target="_blank"><i class='bx bxl-facebook'></i></a>
+            <a href="https://www.instagram.com/nqobileq_services_/" target="_blank"><i class='bx bxl-instagram'></i></a>
+            <a href="https://wa.me/+27782280408" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+            <a href="mailto:nqobileq.co@gmail.com"><i class='bx bxl-gmail'></i></a>
+        </div>
+        <p class="copyright">&copy; NqobileQ 2026 - All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
