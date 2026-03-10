@@ -1,7 +1,10 @@
 FROM php:8.1-apache
 
-# Install PHP extensions
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Install required PHP extensions
+RUN apt-get update && apt-get install -y \
+    zip \
+    unzip \
+    && docker-php-ext-install mysqli pdo pdo_mysql mbstring
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
@@ -9,13 +12,13 @@ RUN a2enmod rewrite
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy application files
+# Copy project files
 COPY . /var/www/html/
 
 WORKDIR /var/www/html
 
 # Install dependencies
-RUN if [ -f "composer.json" ]; then COMPOSER_ALLOW_SUPERUSER=1 composer install --no-interaction --no-dev --prefer-dist; fi
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-interaction --no-dev --prefer-dist
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html \
