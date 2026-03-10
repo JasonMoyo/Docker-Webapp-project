@@ -12,12 +12,13 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy application files
 COPY . /var/www/html/
 
-# Install PHP dependencies (if composer.json exists)
-RUN if [ -f "composer.json" ]; then composer install --no-interaction; fi
+WORKDIR /var/www/html
+
+# Install dependencies
+RUN if [ -f "composer.json" ]; then COMPOSER_ALLOW_SUPERUSER=1 composer install --no-interaction --no-dev --prefer-dist; fi
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# Expose Apache port
 EXPOSE 80
